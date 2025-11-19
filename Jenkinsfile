@@ -31,6 +31,11 @@ pipeline{
         sh "mvn package"
       }
     }
+
+    stage("Install"){
+      steps{
+      sh "mvn install"
+    }
   } 
 
   post{ 
