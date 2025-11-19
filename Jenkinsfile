@@ -34,9 +34,17 @@ pipeline{
 
     stage("Install"){
       steps{
-      sh "mvn install"
+        sh "mvn install"
       }
     }
+
+    stage("Dependencies"){
+      steps{
+        sh "mvn dependency:tree"
+      }
+    }
+    
+
   } 
 
   post{ 
