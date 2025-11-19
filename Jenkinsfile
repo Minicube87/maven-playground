@@ -10,7 +10,6 @@ pipeline{
     stage("Cleanup"){ 
       steps{ 
         sh "mvn --version" 
-        sh "mvn compile" 
       }       
     } 
 
@@ -29,6 +28,7 @@ pipeline{
     stage("Package"){
       steps{
         sh "mvn package"
+        sh "ls -R target"
       }
     }
 
@@ -49,8 +49,8 @@ pipeline{
 
   post{ 
     always{ 
-      sh "mvn clean"
-      //echo "dsadasda" 
+      //sh "mvn clean"
+      echo "dsadasda" 
     } 
 
     success{ 
