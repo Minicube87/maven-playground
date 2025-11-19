@@ -7,11 +7,20 @@ pipeline{
   } 
 
   stages{ 
+
     stage("Cleanup"){ 
       steps{ 
         sh "mvn --version" 
+        sh "rm -rf ./*"
+
       }       
     } 
+
+    stage('Checkout') {
+      steps { 
+        checkout scm 
+      }
+    }
 
     stage("Compile"){
       steps{
