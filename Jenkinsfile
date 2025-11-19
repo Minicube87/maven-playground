@@ -25,11 +25,13 @@ pipeline{
         sh "mvn test"
       }
     }
+
+    steps("")
   } 
 
   post{ 
     always{ 
-      sh "mvn clean" 
+      sh "sdsadas" 
     } 
 
     success{ 
