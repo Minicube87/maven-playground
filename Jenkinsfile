@@ -26,12 +26,16 @@ pipeline{
       }
     }
 
-
+    stage("Package"){
+      steps{
+        sh "mvn package"
+      }
+    }
   } 
 
   post{ 
     always{ 
-      sh "sdsadas" 
+      echo "asdasdasfas" 
     } 
 
     success{ 
