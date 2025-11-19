@@ -35,7 +35,7 @@ pipeline{
 
   post{ 
     always{ 
-      echo "asdasdasfas" 
+      sh "mvn clean" 
     } 
 
     success{ 
