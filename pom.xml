@@ -29,6 +29,8 @@
 	</scm>
 	<properties>
 		<java.version>21</java.version>
+		<env.name>LOCAL</env.name>
+		<packageName>Kurs3-JS-local</packageName>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -51,7 +53,7 @@
 	</dependencies>
 
 	<build>
-	    <finalName>Kurs3-JS</finalName>
+	    <finalName>${packageName}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
