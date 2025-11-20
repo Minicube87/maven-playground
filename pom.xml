@@ -51,6 +51,7 @@
 	</dependencies>
 
 	<build>
+	    <finalName>Kurs3-JS</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
