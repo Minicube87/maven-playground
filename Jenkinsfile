@@ -59,7 +59,7 @@ pipeline{
   post{ 
     always{ 
       //sh "mvn clean"
-      echo "dsadasda" 
+      echo "dsadasdasdsadsads" 
     } 
 
     success{ 
