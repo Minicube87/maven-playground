@@ -29,10 +29,9 @@
 	</scm>
 	<properties>
 		<java.version>21</java.version>
-		<env.name>LOCAL</env.name>
-		<packageName>Kurs3-JS-local</packageName>
 	</properties>
 	<dependencies>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
@@ -71,5 +70,29 @@
 
 		</plugins>
 	</build>
+
+	<profiles>
+
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<env.name>DEV</env.name>
+				<packageName>Kurs3-JS-dev</packageName>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>prod</id>
+			<properties>
+				<env.name>PROD</env.name>
+				<packageName>Kurs3-JS-prod</packageName>
+			</properties>
+		</profile>
+
+	</profiles>
+
 
 </project>
