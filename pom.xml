@@ -29,6 +29,7 @@
 	</scm>
 	<properties>
 		<java.version>21</java.version>
+		<skipTests>false</skipTests>
 	</properties>
 	<dependencies>
 
@@ -68,6 +69,18 @@
 				</configuration>
 			</plugin>
 
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<!-- Version kannst du mit Spring-Boot-Parent sogar weglassen,
+					hier ist sie als Beispiel eingetragen -->
+				<version>3.2.5</version>
+				<configuration>
+					<skipTests>${skipTests}</skipTests>
+				</configuration>
+			</plugin>
+
+
 		</plugins>
 	</build>
 
@@ -81,6 +94,7 @@
 			<properties>
 				<env.name>DEV</env.name>
 				<packageName>Kurs3-JS-dev</packageName>
+				<skipTests>false</skipTests> <!-- in dev: Tests laufen -->
 			</properties>
 		</profile>
 
@@ -89,6 +103,7 @@
 			<properties>
 				<env.name>PROD</env.name>
 				<packageName>Kurs3-JS-prod</packageName>
+				<skipTests>true</skipTests> <!-- in prod: Tests standardmäßig skippen -->
 			</properties>
 		</profile>
 
