@@ -4,7 +4,13 @@ pipeline{
 
   tools{ 
     maven 'Maven' 
-  } 
+  }
+
+  parameters {
+    choice(name: 'PROFILE', choices: ['dev', 'prod'], description: 'Maven-Profil')
+    choice(name: 'SKIP_TESTS', choices: ['true', 'false'], description: 'Tests überspringen?')
+  }
+ 
 
   stages{ 
 
@@ -22,37 +28,11 @@ pipeline{
       }
     }
 
-    stage("Compile"){
-      steps{
-        sh "mvn compile"
+    stage('Build') {
+      steps {
+        sh "mvn clean package -P${PROFILE} -DskipTests=${SKIP_TESTS}"
       }
     }
-
-    stage("Test"){
-      steps{
-        sh "mvn test"
-      }
-    }
-
-    stage("Package"){
-      steps{
-        sh "mvn package"
-        sh "ls -R target"
-      }
-    }
-
-    stage("Install"){
-      steps{
-        sh "mvn install"
-      }
-    }
-
-    stage("Dependencies"){
-      steps{
-        sh "mvn dependency:tree"
-      }
-    }
-    
 
   } 
 
