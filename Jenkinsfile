@@ -30,7 +30,7 @@ pipeline{
 
     stage('Build') {
       steps {
-        sh "mvn clean package -P${PROFILE} -DskipTests=${SKIP_TESTS}"
+        sh "mvn clean package -P${params.PROFILE} -DskipTests=${params.SKIP_TESTS}"
       }
     }
 
